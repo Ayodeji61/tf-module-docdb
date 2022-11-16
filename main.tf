@@ -19,3 +19,4 @@ resource "aws_docdb_cluster" "docdb" {
   skip_final_snapshot     = true
   db_subnet_group_name    = "${var.env}-${each.key}-roboshop-docdb"
 }
+
