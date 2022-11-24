@@ -23,5 +23,5 @@ resource "aws_docdb_cluster_instance" "cluster_instances" {
   for_each = var.nodes
   identifier         = "${var.env}-${var.name}-roboshop-docdb-${each.key}"
   cluster_identifier = aws_docdb_cluster.docdb.id
-  instance_class     = "db.r5.large"
+  instance_class     = each.value.instance_class
 }
