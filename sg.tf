@@ -1,19 +1,15 @@
-
 resource "aws_security_group" "sg" {
   name        = "${var.env}-${var.name}-docdb.sg"
   description = "${var.env}-${var.name}-docdb.sg"
   vpc_id      = var.vpc_id
 
-
   ingress {
-    description      = "MONGODB"
-    from_port        = 27017
-    to_port          = 27017
-    protocol         = "tcp"
-    cidr_blocks      = [var.vpc_cidr, var.BASTION_NODE]
+    description = "MONGODB"
+    from_port   = 27017
+    to_port     = 27017
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr, var.BASTION_NODE]
   }
-
-
 
   egress {
     from_port        = 0
@@ -24,6 +20,6 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "${var.env}-${var.name}-ec2.sg"
+    Name = "${var.env}-${var.name}-docdb.sg"
   }
 }
