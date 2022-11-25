@@ -9,10 +9,8 @@ unzip -o mongodb.zip
 cd mongodb-main
 curl -L -O https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
 mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint}:27017 --sslCAFile rds-combined-ca-bundle.pem --username ${local.DOCDB_USER} --password ${local.DOCDB_PASS} < catalogue.js
-
 mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint}:27017 --sslCAFile rds-combined-ca-bundle.pem --username ${local.DOCDB_USER} --password ${local.DOCDB_PASS} < users.js
-
-
 EOF
   }
+
 }
